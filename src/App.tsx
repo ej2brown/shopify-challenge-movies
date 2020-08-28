@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Button from "./components/button";
+
+//components
+import SearchBar from "./components/searchBar";
+import ResultsList from "./components/resultsList";
+import NominationsList from "./components/nominationsList";
 
 import './App.css';
 
 const APIKEY = process.env.REACT_APP_APIKEY;
 
-function App() {
+export default function App() {
 
   const [movie, setMovie] = useState('Guardians of the Galaxy Vol. 2'); // for testing 
   const [results, setResults] = useState([] as any);
@@ -56,55 +60,20 @@ function App() {
     <div className="App">
       {/* <header className="App-header">
       </header> */}
-      <section className="movie-input">
-        Movie Title
-        <form>
-          <input
-            placeholder="Enter Movie Title"
-            value={movie}
-            onChange={handleSearchInput}
-          >
-          </input>
-        </form>
-
-        <button
-          onClick={() => onSearch()}
-        >
-          Search
-        </button>
-      </section>
-      <section className="movie-results">
-        <h3>Results for "{movie}"</h3>
-        {results && results.map((movie: any, index: number) => {
-          const imdbID = nominations.map(function(movie: any) { return movie.imdbID });
-
-          return (
-            <ul key={`${index}`}>
-              <li>{movie.Title} ({movie.Year})</li>
-              <Button
-                onNominate={onNominate}
-                movie={movie}
-                nominations={imdbID}
-              >Nominate</Button>
-            </ul>
-          )
-        })}
-      </section>
-      <section className="movie-nominations">
-        <h3>Nominations</h3>
-        {nominations && nominations.map((movie: any, index: number) => {
-          return (
-            <ul key={`${index}`}>
-              <li>{movie.Title} ({movie.Year})</li>
-              <button onClick={() => {
-                onRemoveNominate(movie);
-              }}>Remove</button>
-            </ul>
-          )
-        })}
-      </section>
+      <SearchBar
+        movie={movie}
+        handleSearchInput={handleSearchInput}
+        onSearch={onSearch} />
+      <ResultsList 
+      movie={movie} 
+      results={results} 
+      nominations={nominations}
+      onNominate={onNominate} 
+      />
+      <NominationsList 
+      nominations={nominations}
+      onRemoveNominate={onRemoveNominate}
+            />
     </div>
   );
-}
-
-export default App;
+};
