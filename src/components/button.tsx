@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react";
 
 export default function Button(props: any) {
-  const [disable, setDisable] = useState(false)
+  const [disable, setDisable] = useState(false);
+
+  useEffect(() => {
+    if (!props.nominations.includes(props.movie.imdbID)) {
+      setDisable(false)
+    }
+  }, [props.movie.imdbID, props.nominations]);
 
   const setNominatee = () => {
-    if (!disable) {
+    // if (!props.nominations.includes(props.movie.imdbID)) {
+      if (!disable) {
       props.onNominate(props.movie)
       setDisable(true)
     };
@@ -12,6 +19,7 @@ export default function Button(props: any) {
 
   return (
     <button
+      key={props.movie.imdbID}
       onClick={() => setNominatee()}
       disabled={disable}
     >
