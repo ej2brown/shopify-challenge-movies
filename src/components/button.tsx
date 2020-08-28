@@ -5,7 +5,9 @@ export default function Button(props: any) {
 
   useEffect(() => {
     if (!props.nominations.includes(props.movie.imdbID)) {
-      setDisable(false)
+      setDisable(false);
+    } else{
+      setDisable(true);
     }
   }, [props.movie.imdbID, props.nominations]);
 
@@ -13,7 +15,7 @@ export default function Button(props: any) {
     // if (!props.nominations.includes(props.movie.imdbID)) {
       if (!disable) {
       props.onNominate(props.movie)
-      setDisable(true)
+      setDisable(true);
     };
   };
 
