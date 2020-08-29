@@ -4,12 +4,18 @@ export default function SearchBar(props: { movie: any; handleSearchInput: any; o
   const { movie, handleSearchInput, onSearch } = props;
 
   return (
-    <section className="movie-input">
-      Movie Title
-      <form>
-      <span className="material-icons">
-search
-</span>
+    <section className="search-bar">
+      <h3>Movie Title</h3>
+      <form
+        onSubmit={(event) => {
+          event.preventDefault()
+          onSearch()
+        }}
+
+      >
+        <span className="material-icons">
+          search
+          </span>
         <input
           placeholder="Enter Movie Title"
           value={movie}
@@ -17,11 +23,11 @@ search
         >
         </input>
       </form>
-      <button
+      {/* <button
         onClick={() => onSearch()}
       >
         Search
-    </button>
+    </button> */}
     </section>
   )
 }
