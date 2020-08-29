@@ -7,6 +7,9 @@ export default function SearchBar(props: { movie: any; handleSearchInput: any; o
     <section className="movie-input">
       Movie Title
       <form>
+      <span className="material-icons">
+search
+</span>
         <input
           placeholder="Enter Movie Title"
           value={movie}
