@@ -11,6 +11,8 @@ const bcrypt = require("bcrypt");
 const router = express.Router();
 
 module.exports = (db) => {
+  const dbHelpers = require("./dbHelpers/helpers.js")(db);
+
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM users;`)
       .then(data => {
@@ -47,11 +49,31 @@ module.exports = (db) => {
       .then(() =>
         res.status(400))
       .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
+        res.status(500).json({ error: err.message });
       });
   });
+
+  router.post("/login", (req, res) => {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      res.status(400).send("Invalid credentials. Please <a href='/login'>try again</a>!");
+      return;
+    }
+
+    dbHelpers
+      .authenticateUser(email, password)
+      .then(user => {
+        console.log(user);
+        if (user) {
+          res.status(400).send(user);
+        } else {
+          res.status(400).send("Invalid credentials. Please <a href='/login'>try again</a>!");
+        }
+      })
+      .catch(e => console.error(e));
+  });
+
 
   //////////////////////
   return router;
