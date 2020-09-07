@@ -2,11 +2,12 @@
 require('dotenv').config();
 
 // Web server configuration
-const PORT       = process.env.PORT || 8000;
-const express    = require("express");
-const bodyParser = require("body-parser");
-const app        = express();
-const morgan     = require('morgan');
+const express      = require("express");
+const bodyParser   = require("body-parser");
+const app          = express();
+const morgan       = require('morgan');
+const cors         = require("cors");
+const PORT         = process.env.PORT || 8000;
 
 // PG database client/connection configuration
 const { Pool } = require('pg');
@@ -33,6 +34,8 @@ db.connect();
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cors());
 
 // Separated Routes for each Resource
 const usersRoutes = require("./routes/users");
