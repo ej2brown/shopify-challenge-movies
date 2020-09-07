@@ -1,12 +1,15 @@
-// reset webpage
 html, body {
-  height: 100%;
-  margin: 0;
   padding: 30px 50px;
-  border: 0;
-  background-color: #f4f6f8;
+  background-color: #EEE;
+}
+body {
+  h1 {
+    color: #244751;
+  }
 }
 
+
+// App Grid
 .App {
   display: grid;
   grid-template-columns: 50% 50%;

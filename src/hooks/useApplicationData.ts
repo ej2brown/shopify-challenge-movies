@@ -1,8 +1,7 @@
-import React, { useState} from "react";
+import { useState } from "react";
 
 import axios from "axios";
-// const APIKEY = process.env.REACT_APP_APIKEY;
-import hardCodedData from "../data/index";
+const APIKEY = process.env.REACT_APP_APIKEY;
 
 export default function useApplicationData() {
   const [movie, setMovie] = useState('Guardians of the Galaxy Vol. 2'); // for testing 
@@ -11,14 +10,13 @@ export default function useApplicationData() {
 
   const onSearch = () => {
     const queryTitle = querifyString(movie);
-    setResults(hardCodedData);
-    // axios.get(`http://www.omdbapi.com/?apikey=${APIKEY}&s=${queryTitle}`)
-    //   .then((response) => {
-    //     const result = response.data.Search;
-    //     console.log(result);
-    //     setResults(result);
-    //   })
-    //   .catch(error => console.log(error));
+    axios.get(`http://www.omdbapi.com/?apikey=${APIKEY}&s=${queryTitle}`)
+      .then((response) => {
+        const result = response.data.Search;
+        console.log(result);
+        setResults(result);
+      })
+      .catch(error => console.log(error));
   }
 
   const querifyString = (str: string) => {
@@ -43,7 +41,6 @@ export default function useApplicationData() {
     }
   }
 
-  
   return {
     movie,
     results,

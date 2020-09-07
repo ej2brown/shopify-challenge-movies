@@ -1,17 +1,19 @@
-import React, { useEffect } from "react";
-
+import React, { useState, useEffect } from "react";
 import useApplicationData from "./hooks/useApplicationData";
-
 //components
 import SearchBar from "./components/searchBar";
 import ResultsList from "./components/resultsList";
 import NominationsList from "./components/nominationsList";
+import EmailForm from "./components/EmailForm";
+
 import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
+
 import './App.scss';
 
 export default function App() {
+  const [user, setUser] = useState({})
 
   const {
     movie,
@@ -35,7 +37,7 @@ export default function App() {
       progress: undefined,
     });
   };
-  
+
   useEffect(() => {
     if (nominations.length === 5) {
       notify()
@@ -72,6 +74,7 @@ export default function App() {
         nominations={nominations}
         onRemoveNominate={onRemoveNominate}
       />
+      <EmailForm user={user} setUser={setUser}></EmailForm>
     </div>
   );
 };
