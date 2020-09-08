@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import axios from "axios";
+
 const APIKEY = process.env.REACT_APP_APIKEY;
 
 export default function useApplicationData() {
   const [movie, setMovie] = useState('Guardians of the Galaxy Vol. 2'); // for testing 
   const [results, setResults] = useState([] as any);
   const [nominations, setNominations] = useState([] as any);
+  const [user, setUser] = useState()
 
   const onSearch = () => {
     const queryTitle = querifyString(movie);
@@ -41,13 +43,105 @@ export default function useApplicationData() {
     }
   }
 
+  // check if email is already saved 
+  const fetchUserWithEmail = (email: string) => {
+    return (
+      axios
+        .get(`https://shoppies-nominations-challenge.herokuapp.com/api/users/${email}`)
+        .then(res => {
+          setUser(res.data);
+          return res.data;
+        })
+        .catch(error => console.log(error))
+    )
+  }
+  // post request to save email 
+  const postUserWithEmail = (email: string) => {
+    axios
+      .post("https://shoppies-nominations-challenge.herokuapp.com/api/users/email", {
+        email
+      })
+      .then(res => {
+        if (res.data.isValid) {
+          setUser(res.data);
+          return res.data;
+        }
+      })
+      .catch(error => console.log(error));
+  }
+
+  const fetchNominations = (emailId: number) => {
+    axios
+      .get(`https://shoppies-nominations-challenge.herokuapp.com/api/users/nominations/${emailId}`)
+      .then(res => {
+        const nominatedMovies = res.data;
+        if (nominatedMovies) {
+          nominatedMovies.map((nominatedMovie: any) => {
+            // changing to match uppercase keys from api
+            const list = {
+              id: nominatedMovie.id,
+              imdbID: nominatedMovie.imdbId,
+              Title: nominatedMovie.title,
+              Year: nominatedMovie.year,
+              email_id: nominatedMovie.email_id
+            }
+            console.log(list)
+            setNominations([...nominations, list])
+            // setNominations(list)
+          })
+        }
+        console.log(nominations)
+        return res.data;
+      })
+      .catch(error => console.log(error))
+  }
+  // check if nomination was already saved
+  const fetchNomination = (emailId: number, imdbID: string) => {
+    return (
+      axios
+        .get(`https://shoppies-nominations-challenge.herokuapp.com/users/nominations/${emailId}/${imdbID}`)
+        .then(res => {
+          return res.data;
+        })
+        .catch(error => console.log(error))
+    )
+  }
+
+  const postNominations = (emailId: number, nominations: any) => {
+    nominations.map((movie: any) => {
+      fetchNomination(emailId, movie.imdbID)
+        .then(res => {
+          if (res.length === 0 || !res) {
+            axios
+              .post("https://shoppies-nominations-challenge.herokuapp.com/api/users/nominate", {
+                emailId,
+                imdbID: movie.imdbID,
+                Title: movie.Title,
+                Year: movie.Year
+              })
+          }
+        })
+        .catch(error => console.log(error));
+    })
+  }
+  useEffect(() => {
+    console.log("INIT CHANGE", nominations)
+  }, [results, nominations, user]);
+
   return {
     movie,
     results,
     nominations,
+    user,
+    setUser,
     onSearch,
     handleSearchInput,
     onNominate,
-    onRemoveNominate
+    onRemoveNominate,
+    fetchUserWithEmail,
+    postUserWithEmail,
+    fetchNominations,
+    fetchNomination,
+    postNominations
   }
 }
