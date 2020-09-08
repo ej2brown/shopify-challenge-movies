@@ -1,44 +1,68 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <a href="https://www.shopify.com/">
+    <img alt="Gatsby" src="./public/images/shopify-challenge-movies.jpeg" width="60" />
+  </a>
+</p>
+<h1 align="center">
+UX Developer Intern & Web Developer Intern Challenge - Winter 2021
+</h1>
 
-## Available Scripts
+### The Shoppies: Movie awards for entrepreneurs
 
-In the project directory, you can run:
 
-### `yarn start`
+> A webpage that can search OMDB for movies, and allow the user to save their favourite films they feel should be up for nomination. When they've selected 5 nominees they should be notified they're finished.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Features
+- Search OMDB and display the results (movies only)
+- Add a movie from the search results to our nomination list
+- View the list of films already nominated
+- Remove a nominee from the nomination list
+- Save nomination lists if the user leaves the page
+- Displays a banner when the user has 5 nominations
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Resources
 
-### `yarn test`
+[Developer Internships & Data Science Internships - Winter 2021](https://www.shopify.com/careers/developer-internships-data-science-internships-winter-2021-826aeb)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[UX Developer Intern & Web Developer Intern Challenge Description](https://docs.google.com/document/d/1AZO0BZwn1Aogj4f3PDNe1mhq8pKsXZxtrG--EIbP_-w/edit#heading=h.31w9woubunro)
 
-### `yarn build`
+[OMDB's API](http://www.omdbapi.com/apikey.aspx)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+# Tech Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Front-End
+ - React
+ - Material-ui
 
-### `yarn eject`
+## Back-End
+- NodeJS
+- ExpressJS
+- PostgreSQL
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Deployment Links
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Back-End 
+- [Heroku](https://shoppies-nominations-challenge.herokuapp.com)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Front-End 
+- Netifly
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Getting Started 
 
-## Learn More
+1. Fork this repository, then clone your fork of this repository.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```shell 
+git clone git@github.com:ej2brown/shopify-challenge-movies.git
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Install dependencies using the npm install command.
+```shell 
+npm install // or npm i
+```
+3. Navigate into the projects directory and run gatsby.
+
+```shell 
+npm start
+```
+1. The app will be served at http://localhost:3000/. Go to http://localhost:3000/ in your browser.
