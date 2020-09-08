@@ -16,7 +16,8 @@ export default function useApplicationData() {
       {
         headers: {
           "Access-Control-Allow-Origin": "*",
-          "Content-Security-Policy": "upgrade-insecure-requests"
+          "Content-Security-Policy": "upgrade-insecure-requests",
+          'Content-Type': 'application/x-www-form-urlencoded'
         }
       })
       .then((response) => {
