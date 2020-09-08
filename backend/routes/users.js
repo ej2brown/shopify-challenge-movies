@@ -79,6 +79,7 @@ module.exports = (db) => {
 
   router.post("/nominate", (req, res) => {
     const { emailId, imdbID, Title, Year } = req.body;
+    console.log(emailId, imdbID, Title, Year)
     if (!emailId) {
       return res.status(400).send({ isValid: false, error: "User not found." });
     }
@@ -101,15 +102,15 @@ module.exports = (db) => {
       });
   });
 
-  router.get("/nominations/:emailId/:imdbId", (req, res) => {
+  router.get("/nominations/:emailId/:imdbID", (req, res) => {
     const emailId = req.params.emailId;
-    const imdbId = req.params.imdbId;
+    const imdbID = req.params.imdbID;
     db
       .query(
         `SELECT * FROM nominations
          WHERE email_id=$1 AND imdbid=$2;
         `,
-        [emailId, imdbId]
+        [emailId, imdbID]
       )
       .then(data => {
         console.log(data);
