@@ -74,7 +74,7 @@ export default function App() {
         nominations={nominations}
         onRemoveNominate={onRemoveNominate}
       />
-      <EmailForm user={user} setUser={setUser}></EmailForm>
+      <EmailForm user={user} setUser={setUser} nominations={nominations}></EmailForm>
     </div>
   );
 };
