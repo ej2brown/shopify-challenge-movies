@@ -15,7 +15,8 @@ export default function useApplicationData() {
     axios.get(`https://www.omdbapi.com?apikey=${APIKEY}&s=${queryTitle}`,
       {
         headers: {
-          'Content-Security-Policy-Report-Only': "default-src https: 'unsafe-inline' 'unsafe-eval'"
+          "Access-Control-Allow-Origin": "*",
+          "Content-Security-Policy": "upgrade-insecure-requests"
         }
       })
       .then((response) => {
