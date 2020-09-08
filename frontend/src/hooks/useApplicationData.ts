@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 
 import axios from "axios";
-
+declare var process : {
+  env: {
+    REACT_APP_APIKEY: string
+  }
+}
 const APIKEY = process.env.REACT_APP_APIKEY;
 
 export default function useApplicationData() {
@@ -10,19 +14,12 @@ export default function useApplicationData() {
   const [nominations, setNominations] = useState([] as any);
   const [user, setUser] = useState()
 
-  const onSearch = () => {
+  const onSearch = async () => {
     const queryTitle = querifyString(movie);
-    axios.get(`https://www.omdbapi.com?apikey=${APIKEY}&s=${queryTitle}`,
-      {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Security-Policy": "upgrade-insecure-requests",
-          'Content-Type': 'application/x-www-form-urlencoded'
-        }
-      })
+    const url = `https://www.omdbapi.com/?s=${queryTitle}&type=movie&type=movie&apikey=${process.env.REACT_APP_APIKEY}`;
+    await axios.get(url)
       .then((response) => {
         const result = response.data.Search;
-        console.log(result);
         setResults(result);
       })
       .catch(error => console.log(error));
@@ -66,10 +63,7 @@ export default function useApplicationData() {
   const postUserWithEmail = (email: string) => {
     axios
       .post("https://shoppies-nominations-challenge.herokuapp.com/api/users/email", {
-        email,
-        headers: {
-          'Content-Security-Policy-Report-Only': "default-src https: 'unsafe-inline' 'unsafe-eval'"
-        }
+        email
       })
       .then(res => {
         if (res.data.isValid) {
