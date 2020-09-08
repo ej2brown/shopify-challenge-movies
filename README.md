@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.shopify.com/">
-    <img alt="Gatsby" src="./public/images/shopify-challenge-movies.jpeg" width="60" />
+    <img alt="Shopify" src="./frontend/public/images/shopify-challenge-movies.jpeg" width="60" />
   </a>
 </p>
 <h1 align="center">
@@ -9,8 +9,11 @@ UX Developer Intern & Web Developer Intern Challenge - Winter 2021
 
 ### The Shoppies: Movie awards for entrepreneurs
 
-
 > A webpage that can search OMDB for movies, and allow the user to save their favourite films they feel should be up for nomination. When they've selected 5 nominees they should be notified they're finished.
+
+This app is hosted on Netlify! [here](https://shoppies-nominations-challenge.netlify.app
+)
+
 
 # Features
 - Search OMDB and display the results (movies only)
@@ -29,26 +32,27 @@ UX Developer Intern & Web Developer Intern Challenge - Winter 2021
 [OMDB's API](http://www.omdbapi.com/apikey.aspx)
 
 
-# Tech Stack
+## Tech Stack
 
-## Front-End
+### Front-End
  - React
  - Material-ui
 
-## Back-End
+### Back-End
 - NodeJS
 - ExpressJS
 - PostgreSQL
 
-# Deployment Links
+## Deployment Links
 
-## Back-End 
+#### Back-End 
 - [Heroku](https://shoppies-nominations-challenge.herokuapp.com)
 
-## Front-End 
-- Netifly
+### Front-End 
+- [Netifly](https://shoppies-nominations-challenge.netlify.app
+)
 
-# Getting Started 
+## Getting Started 
 
 1. Fork this repository, then clone your fork of this repository.
 
