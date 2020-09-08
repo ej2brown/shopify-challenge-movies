@@ -1,7 +1,6 @@
 import React from "react";
 
-//components
-import Button from "./button";
+import Button from "./Button";
 
 export default function ResultsList(props: { movie: any; results: any; nominations: any; onNominate: any; }) {
   const { movie, results, nominations, onNominate } = props;

@@ -11,7 +11,6 @@ export default function SearchBar(props: { movie: any; handleSearchInput: any; o
           event.preventDefault()
           onSearch()
         }}
-
       >
         <span className="material-icons">
           search
@@ -23,6 +22,7 @@ export default function SearchBar(props: { movie: any; handleSearchInput: any; o
         >
         </input>
       </form>
+      {/* uncomment if button preference */}
       {/* <button
         onClick={() => onSearch()}
       >

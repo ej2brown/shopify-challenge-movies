@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import useApplicationData from "./hooks/useApplicationData";
 
 //components
-import SearchBar from "./components/searchBar";
-import ResultsList from "./components/resultsList";
-import NominationsList from "./components/nominationsList";
+import SearchBar from "./components/SearchBar";
+import ResultsList from "./components/ResultsList";
+import NominationsList from "./components/NominationsList";
 import EmailForm from "./components/EmailForm";
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -41,12 +41,12 @@ export default function App() {
     });
   };
 
-  // useEffect(() => {
-  //   console.log("APP HAS CHANGE", nominations)
-  //   if (nominations.length === 3) {
-  //     notify()
-  //   };
-  // }, [results, nominations, user]);
+  // sends notification when five movies have been nominated
+  useEffect(() => {
+    if (nominations.length === 5) {
+      notify()
+    };
+  }, [nominations]);
 
   return (
     <div className="App">

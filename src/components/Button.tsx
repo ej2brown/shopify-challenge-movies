@@ -4,17 +4,17 @@ export default function Button(props: { children?: any; movie?: any; nominations
   const [disable, setDisable] = useState(false);
   const { movie, nominations, onNominate } = props;
 
+  // checks if movie is currently nominated
   useEffect(() => {
     if (!nominations.includes(movie.imdbID)) {
       setDisable(false);
-    } else{
+    } else {
       setDisable(true);
     }
   }, [movie.imdbID, nominations]);
 
   const setNominatee = () => {
-    // if (!nominations.includes(movie.imdbID)) {
-      if (!disable) {
+    if (!disable) {
       onNominate(movie)
       setDisable(true);
     };

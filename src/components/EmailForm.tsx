@@ -8,10 +8,9 @@ import {
   Grid,
 } from "@material-ui/core";
 
-
 export default function LoginForm(props: any) {
-  const [email, setEmail] = useState("alice@gmail.com")
-  const [error, setError] = useState(false)
+  const [email, setEmail] = useState("alice@gmail.com");
+  const [error, setError] = useState(false);
 
   const {
     nominations,
@@ -22,7 +21,6 @@ export default function LoginForm(props: any) {
     fetchNominations,
     postNominations
   } = props;
-
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -65,8 +63,6 @@ export default function LoginForm(props: any) {
       {error && <div>The email provided was incorrect!</div>}
       {user && <Button variant="outlined" color="primary" onClick={() => fetchNominations(user.id)}>fetch your nominations</Button>}
       {user && <Button variant="outlined" color="primary" onClick={() => postNominations(user.id, nominations)}>set your nominations</Button>}
-
     </Container >
   )
-
-} 
+}

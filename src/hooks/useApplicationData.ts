@@ -85,12 +85,9 @@ export default function useApplicationData() {
               Year: nominatedMovie.year,
               email_id: nominatedMovie.email_id
             }
-            console.log(list)
-            setNominations([...nominations, list])
-            // setNominations(list)
+            setNominations([...nominations, list]);
           })
         }
-        console.log(nominations)
         return res.data;
       })
       .catch(error => console.log(error))
@@ -99,7 +96,7 @@ export default function useApplicationData() {
   const fetchNomination = (emailId: number, imdbID: string) => {
     return (
       axios
-        .get(`https://shoppies-nominations-challenge.herokuapp.com/users/nominations/${emailId}/${imdbID}`)
+        .get(`https://shoppies-nominations-challenge.herokuapp.com/api/users/nominations/${emailId}/${imdbID}`)
         .then(res => {
           return res.data;
         })
@@ -120,6 +117,7 @@ export default function useApplicationData() {
                 Year: movie.Year
               })
           }
+           
         })
         .catch(error => console.log(error));
     })
