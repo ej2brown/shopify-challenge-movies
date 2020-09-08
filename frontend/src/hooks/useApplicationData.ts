@@ -12,7 +12,12 @@ export default function useApplicationData() {
 
   const onSearch = () => {
     const queryTitle = querifyString(movie);
-    axios.get(`https://www.omdbapi.com?apikey=${APIKEY}&s=${queryTitle}`)
+    axios.get(`https://www.omdbapi.com?apikey=${APIKEY}&s=${queryTitle}`,
+      {
+        headers: {
+          'Content-Security-Policy-Report-Only': "default-src https: 'unsafe-inline' 'unsafe-eval'"
+        }
+      })
       .then((response) => {
         const result = response.data.Search;
         console.log(result);
