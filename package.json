@@ -1,61 +1,30 @@
 {
-  "name": "shopify-challenge-movies",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@apollo/client": "^3.1.4",
-    "@material-ui/core": "^4.11.0",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "@types/react-router-dom": "^5.1.5",
-    "axios": "^0.20.0",
-    "body-parser": "^1.19.0",
-    "bootstrap": "^4.5.2",
-    "cookie-session": "^1.4.0",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "graphql": "^15.3.0",
-    "morgan": "^1.10.0",
-    "node-sass": "^4.14.1",
-    "node-sass-middleware": "^0.11.0",
-    "pg": "^8.3.3",
-    "pg-native": "^3.0.0",
-    "react": "^16.13.1",
-    "react-cookie": "^4.0.3",
-    "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
-    "react-toastify": "^6.0.8",
-    "toastify": "^2.0.1",
-    "typescript": "~3.7.2"
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "back-end server, configuration and PG database data",
+  "main": "index.js",
+  "bin": {
+    "backend": "resetdb.js"
+  },
+  "directories": {
+    "lib": "lib"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-server": "nodemon server.js",
+    "db:reset": "node bin/resetdb.js"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@types/node": "^12.12.54",
-    "nodemon": "^2.0.4"
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4",
+    "npm": "^6.14.8",
+    "pg": "^8.3.3",
+    "pg-native": "^3.0.0"
   }
 }
