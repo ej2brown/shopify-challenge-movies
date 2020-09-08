@@ -11,8 +11,9 @@ UX Developer Intern & Web Developer Intern Challenge - Winter 2021
 
 > A webpage that can search OMDB for movies, and allow the user to save their favourite films they feel should be up for nomination. When they've selected 5 nominees they should be notified they're finished.
 
-This app is hosted on Netlify! [here](https://shoppies-nominations-challenge.netlify.app
-)
+This app is hosted on Netlify! [here](https://shoppies-nominations-challenge.netlify.app)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/24065bd4-6c73-4bbc-8c56-c818ea8e3bf0/deploy-status)](https://app.netlify.com/sites/shoppies-nominations-challenge/deploys)
 
 
 # Features
