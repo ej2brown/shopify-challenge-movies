@@ -12,7 +12,7 @@ export default function useApplicationData() {
 
   const onSearch = () => {
     const queryTitle = querifyString(movie);
-    axios.get(`http://www.omdbapi.com/?apikey=${APIKEY}&s=${queryTitle}`)
+    axios.get(`https://www.omdbapi.com?apikey=${APIKEY}&s=${queryTitle}`)
       .then((response) => {
         const result = response.data.Search;
         console.log(result);
@@ -59,7 +59,10 @@ export default function useApplicationData() {
   const postUserWithEmail = (email: string) => {
     axios
       .post("https://shoppies-nominations-challenge.herokuapp.com/api/users/email", {
-        email
+        email,
+        headers: {
+          'Content-Security-Policy-Report-Only': "default-src https: 'unsafe-inline' 'unsafe-eval'"
+        }
       })
       .then(res => {
         if (res.data.isValid) {
@@ -117,13 +120,11 @@ export default function useApplicationData() {
                 Year: movie.Year
               })
           }
-           
         })
         .catch(error => console.log(error));
     })
   }
   useEffect(() => {
-    console.log("INIT CHANGE", nominations)
   }, [results, nominations, user]);
 
   return {
