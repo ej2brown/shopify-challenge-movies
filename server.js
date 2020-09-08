@@ -7,7 +7,7 @@ const bodyParser   = require("body-parser");
 const app          = express();
 const morgan       = require('morgan');
 const cors         = require("cors");
-const PORT         = process.env.PORT || 8000;
+const PORT         = process.env.PORT || 5432;
 
 // PG database client/connection configuration
 const { Pool } = require('pg');
