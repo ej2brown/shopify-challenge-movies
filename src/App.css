@@ -22,7 +22,7 @@ html {
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 5em 8em minmax(200px, auto) minmax(10em, auto);
-  grid-gap: 5px;
+  grid-gap: 10px;
 }
 
 header {
@@ -47,6 +47,8 @@ h1 {
 .App>section {
   padding: 10px 10px;
   background-color: #ffffff;
+  box-shadow: 5px 5px 10px #888888;
+
 }
 
 section.search-bar {
