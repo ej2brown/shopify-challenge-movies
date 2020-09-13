@@ -6,7 +6,6 @@ declare var process : {
     REACT_APP_APIKEY: string
   }
 }
-const APIKEY = process.env.REACT_APP_APIKEY;
 
 export default function useApplicationData() {
   const [movie, setMovie] = useState('Guardians of the Galaxy Vol. 2'); // for testing 
@@ -81,7 +80,7 @@ export default function useApplicationData() {
       .then(res => {
         const nominatedMovies = res.data;
         if (nominatedMovies) {
-          nominatedMovies.map((nominatedMovie: any) => {
+          return nominatedMovies.map((nominatedMovie: any) => {
             // changing to match uppercase keys from api
             const list = {
               id: nominatedMovie.id,
@@ -110,7 +109,7 @@ export default function useApplicationData() {
   }
 
   const postNominations = (emailId: number, nominations: any) => {
-    nominations.map((movie: any) => {
+   return nominations.map((movie: any) => {
       fetchNomination(emailId, movie.imdbID)
         .then(res => {
           if (res.length === 0 || !res) {
