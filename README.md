@@ -7,11 +7,11 @@
 UX Developer Intern & Web Developer Intern Challenge - Winter 2021
 </h1>
 
-### The Shoppies: Movie awards for entrepreneurs
+### The Shoppies: Movie Awards for Entrepreneurs
 
 > A webpage that can search OMDB for movies, and allow the user to save their favourite films they feel should be up for nomination. When they've selected 5 nominees they should be notified they're finished.
 
-This app is hosted on Netlify! [here](https://shoppies-nominations-challenge.netlify.app)
+This app is hosted [here](https://shoppies-nominations-challenge.netlify.app) on Netlify! 
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/24065bd4-6c73-4bbc-8c56-c818ea8e3bf0/deploy-status)](https://app.netlify.com/sites/shoppies-nominations-challenge/deploys)
 
@@ -24,7 +24,7 @@ This app is hosted on Netlify! [here](https://shoppies-nominations-challenge.net
 - Save nomination lists if the user leaves the page
 - Displays a banner when the user has 5 nominations
 
-## Resources
+# Resources
 
 [Developer Internships & Data Science Internships - Winter 2021](https://www.shopify.com/careers/developer-internships-data-science-internships-winter-2021-826aeb)
 
@@ -51,7 +51,7 @@ This app is hosted on Netlify! [here](https://shoppies-nominations-challenge.net
 - ExpressJS
 - PostgreSQL
 
-## Getting Started 
+# Getting Started 
 
 1. Fork this repository, then clone your fork of this repository.
 
