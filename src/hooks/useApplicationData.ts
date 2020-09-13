@@ -15,12 +15,10 @@ export default function useApplicationData() {
 
   const onSearch = async () => {
     const queryTitle = querifyString(movie);
-    console.log(queryTitle)
     const url = `https://www.omdbapi.com/?s=${queryTitle}&type=movie&apikey=${process.env.REACT_APP_APIKEY}`;
     await axios.get(url)
       .then((response) => {
         const result = response.data.Search;
-        console.log(response)
         setResults(result);
       })
       .catch(error => console.log(error));
