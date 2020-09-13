@@ -1,28 +1,57 @@
-html, body {
-  padding: 30px 50px;
-  background-color: #EEE;
-}
 html {
   box-sizing: border-box;
+  margin: 0px;
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
+
+html, body {
+  padding: 15px 15px;
+  // background-color: #EEE;
+  
+}
+html {
+background-image: url("./film.jpg");
+background-attachment: fixed;
+// background-position: 0% 0%;
+background-size: cover;
+// filter: grayscale(100%);
+// filter: sepia(25%);
+filter: contrast(120%);
+
+// overflow: hidden;
+}
+
 // App Grid
 .App {
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 5em 8em minmax(200px, auto) 10em;
+  grid-template-rows: 5em 8em minmax(200px, auto) minmax(10em, auto);
   grid-gap: 5px;
 }
 
 header {
   grid-column: 1 / span 2;
   grid-row: 1 / span 1;
+  position: relative;
+  background-color: #ffffff;
+  font-size: 2em;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "curvise";
+}
+h1 {
+  // margin: 0px;
+  position: absolute;
+  margin: auto;
+  width: 50%;
+  left: 25%;
 }
 
 .App >*{
-  padding: 10px 20px;
+  padding: 10px 10px;
 }
 section {
   background-color: #ffffff;
@@ -51,7 +80,9 @@ section.nominations-list {
 .email-form {
   grid-column: 1 / span 1;
   grid-row: 4 / span 1;
+  background-color: #ffffff;
 }
+
 /* .App {
   text-align: center;
 }
@@ -90,3 +121,4 @@ section.nominations-list {
     transform: rotate(360deg);
   }
 } */
+
