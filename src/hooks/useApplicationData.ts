@@ -80,7 +80,7 @@ export default function useApplicationData() {
       .then(res => {
         const nominatedMovies = res.data;
         if (nominatedMovies) {
-          return nominatedMovies.map((nominatedMovie: any) => {
+          nominatedMovies.map((nominatedMovie: any) => {
             // changing to match uppercase keys from api
             const list = {
               id: nominatedMovie.id,
@@ -89,7 +89,7 @@ export default function useApplicationData() {
               Year: nominatedMovie.year,
               email_id: nominatedMovie.email_id
             }
-            setNominations([...nominations, list]);
+            return setNominations([...nominations, list]);
           })
         }
         return res.data;
@@ -109,7 +109,7 @@ export default function useApplicationData() {
   }
 
   const postNominations = (emailId: number, nominations: any) => {
-   return nominations.map((movie: any) => {
+   nominations.map((movie: any) => {
       fetchNomination(emailId, movie.imdbID)
         .then(res => {
           if (res.length === 0 || !res) {
@@ -121,6 +121,7 @@ export default function useApplicationData() {
                 Year: movie.Year
               })
           }
+          return
         })
         .catch(error => console.log(error));
     })
