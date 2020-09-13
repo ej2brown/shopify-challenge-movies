@@ -58,7 +58,7 @@ export default function useApplicationData() {
         .catch(error => console.log(error))
     )
   }
-  // post request to save email 
+  // saves email 
   const postUserWithEmail = (email: string) => {
     axios
       .post("https://shoppies-nominations-challenge.herokuapp.com/api/users/email", {
@@ -73,6 +73,7 @@ export default function useApplicationData() {
       .catch(error => console.log(error));
   }
 
+  // get nominations associated with email
   const fetchNominations = (emailId: number) => {
     axios
       .get(`https://shoppies-nominations-challenge.herokuapp.com/api/users/nominations/${emailId}`)
@@ -80,7 +81,7 @@ export default function useApplicationData() {
         const nominatedMovies = res.data;
         if (nominatedMovies) {
           nominatedMovies.map((nominatedMovie: any) => {
-            // changing to match uppercase keys from api
+            // change database keys to match uppercase keys from api
             const list = {
               id: nominatedMovie.id,
               imdbID: nominatedMovie.imdbId,
@@ -107,6 +108,7 @@ export default function useApplicationData() {
     )
   }
 
+  // saves nominations
   const postNominations = (emailId: number, nominations: any) => {
     nominations.map((movie: any) => {
       return (
