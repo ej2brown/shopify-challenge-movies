@@ -44,7 +44,7 @@ h1 {
   left: 25%;
 }
 
-.App> section {
+.App>section {
   padding: 10px 10px;
   background-color: #ffffff;
 }
@@ -77,4 +77,10 @@ section.nominations-list {
   grid-column: 1 / span 1;
   grid-row: 4 / span 1;
   background-color: #ffffff;
+}
+
+@media only screen and (max-width: 1000px) {
+  header {
+    font-size: 1.5em;
+  }
 }
