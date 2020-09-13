@@ -9,7 +9,9 @@ import EmailForm from "./components/EmailForm";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './App.scss';
+import './App.css';
+
+console.log("Hello Shopify Team!! 👋");
 
 export default function App() {
 
@@ -29,6 +31,7 @@ export default function App() {
     postNominations
   } = useApplicationData();
 
+  // sends notification when five movies have been nominated
   const notify = () => {
     toast.success(`You have nominated 5 movies!`, {
       position: "top-center",
@@ -41,7 +44,7 @@ export default function App() {
     });
   };
 
-  // sends notification when five movies have been nominated
+  // checks nominations count everytime nominations changes
   useEffect(() => {
     if (nominations.length === 5) {
       notify()
