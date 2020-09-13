@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import axios from "axios";
-declare var process : {
+declare var process: {
   env: {
     REACT_APP_APIKEY: string
   }
@@ -109,7 +109,7 @@ export default function useApplicationData() {
   }
 
   const postNominations = (emailId: number, nominations: any) => {
-   nominations.map((movie: any) => {
+    nominations.map((movie: any) => {
       fetchNomination(emailId, movie.imdbID)
         .then(res => {
           if (res.length === 0 || !res) {
@@ -121,9 +121,9 @@ export default function useApplicationData() {
                 Year: movie.Year
               })
           }
-          return
         })
         .catch(error => console.log(error));
+      return
     })
   }
   useEffect(() => {
