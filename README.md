@@ -32,6 +32,13 @@ This app is hosted on Netlify! [here](https://shoppies-nominations-challenge.net
 
 [OMDB's API](http://www.omdbapi.com/apikey.aspx)
 
+## Deployment Links
+
+#### Back-End 
+- [Heroku](https://shoppies-nominations-challenge.herokuapp.com)
+
+### Front-End 
+- [Netifly](https://shoppies-nominations-challenge.netlify.app)
 
 ## Tech Stack
 
@@ -43,15 +50,6 @@ This app is hosted on Netlify! [here](https://shoppies-nominations-challenge.net
 - NodeJS
 - ExpressJS
 - PostgreSQL
-
-## Deployment Links
-
-#### Back-End 
-- [Heroku](https://shoppies-nominations-challenge.herokuapp.com)
-
-### Front-End 
-- [Netifly](https://shoppies-nominations-challenge.netlify.app)
-- * Note: Due to the API URL being HTTP and Netlify being HTTPS, Chrome blocks the request. The API server needs to enable HTTPS in order for it to work.
 
 ## Getting Started 
 
