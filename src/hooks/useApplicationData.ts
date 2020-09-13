@@ -110,20 +110,21 @@ export default function useApplicationData() {
 
   const postNominations = (emailId: number, nominations: any) => {
     nominations.map((movie: any) => {
-      fetchNomination(emailId, movie.imdbID)
-        .then(res => {
-          if (res.length === 0 || !res) {
-            axios
-              .post("https://shoppies-nominations-challenge.herokuapp.com/api/users/nominate", {
-                emailId,
-                imdbID: movie.imdbID,
-                Title: movie.Title,
-                Year: movie.Year
-              })
-          }
-        })
-        .catch(error => console.log(error));
-      return
+      return (
+        fetchNomination(emailId, movie.imdbID)
+          .then(res => {
+            if (res.length === 0 || !res) {
+              axios
+                .post("https://shoppies-nominations-challenge.herokuapp.com/api/users/nominate", {
+                  emailId,
+                  imdbID: movie.imdbID,
+                  Title: movie.Title,
+                  Year: movie.Year
+                })
+            }
+          })
+          .catch(error => console.log(error))
+      )
     })
   }
   useEffect(() => {
