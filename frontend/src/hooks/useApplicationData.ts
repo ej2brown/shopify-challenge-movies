@@ -20,6 +20,7 @@ export default function useApplicationData() {
     await axios.get(url)
       .then((response) => {
         const result = response.data.Search;
+        console.log(response)
         setResults(result);
       })
       .catch(error => console.log(error));
