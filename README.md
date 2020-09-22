@@ -11,7 +11,7 @@ UX Developer Intern & Web Developer Intern Challenge - Winter 2021
 
 > A webpage that can search OMDB for movies, and allow the user to save their favourite films they feel should be up for nomination. When they've selected 5 nominees they should be notified they're finished.
 
-This app is hosted [here](https://shoppies-nominations-challenge.netlify.app) on Netlify! 
+### This app is hosted 👉 [here](https://shoppies-nominations-challenge.netlify.app) 👈 on Netlify! 
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/24065bd4-6c73-4bbc-8c56-c818ea8e3bf0/deploy-status)](https://app.netlify.com/sites/shoppies-nominations-challenge/deploys)
 
@@ -34,24 +34,22 @@ This app is hosted [here](https://shoppies-nominations-challenge.netlify.app) on
 
 ## Deployment Links
 
-#### Back-End 
-- [Heroku](https://shoppies-nominations-challenge.herokuapp.com)
+**Back-end**: [Heroku](https://shoppies-nominations-challenge.herokuapp.com)
 
-### Front-End 
-- [Netifly](https://shoppies-nominations-challenge.netlify.app)
+**Front-end**: [Netifly](https://shoppies-nominations-challenge.netlify.app)
 
 ## Tech Stack
 
-### Front-End
+### Front-end
  - React
  - Material-ui
 
-### Back-End
+### Back-end
 - NodeJS
 - ExpressJS
 - PostgreSQL
 
-# Getting Started 
+# Getting Started - Front-end Branch
 
 1. Fork this repository, then clone your fork of this repository.
 
@@ -69,3 +67,25 @@ npm install // or npm i
 npm start
 ```
 1. The app will be served at http://localhost:3000/. Go to http://localhost:3000/ in your browser.
+
+# Getting Started - Back-end Branch
+1. Login to Postgres and setup a new local database as a reference:
+```shell 
+psql
+CREATE DATABASE shoppies_nominations;
+``` 
+
+2. Create the `.env` by using `.env.example` as a reference: 
+```shell 
+`cp .env.example .env`
+``` 
+3. Update the .env file with your correct local information 
+  - username: `****` 
+  - password: `****` 
+  - database: `****`
+4. Install dependencies: `npm i`
+5. Reset database: `npm run db:reset`
+  - Check the db folder to see what gets created and seeded in the SDB
+7. Run the server: `npm run local`
+  - Note: nodemon is used, so you should not have to restart your server
+8. Visit `http://localhost:8000/`
